@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  <copyright file="WixBuild.Version.targets" company="Outercurve Foundation">
+    Copyright (c) 2004, Outercurve Foundation.
+    This software is released under Microsoft Reciprocal License (MS-RL).
+    The license and further copyright text can be found in the file
+    LICENSE.TXT at the root directory of the distribution.
+  </copyright>
+-->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" InitialTargets="PrepareBuildVersionInfo">
+ <PropertyGroup>
+    <FullBuildVersionString>0.0.0.0</FullBuildVersionString>
+  </PropertyGroup>
+
+  <!-- Central control over versioning -->
+  <Target Name="PrepareBuildVersionInfo">
+    <PropertyGroup>
+      <VersionInfoFileName>$([System.IO.Path]::Combine($(SolutionDir),$(VersionFile)))</VersionInfoFileName>
+      <VersionInfo>$([System.IO.File]::ReadAllText($(VersionInfoFileName)).Trim())</VersionInfo>
+      <MajorBuildNumber>$(VersionInfo.Split(".")[0])</MajorBuildNumber>
+      <MinorBuildNumber>$(VersionInfo.Split(".")[1])</MinorBuildNumber>
+      <BambooBuildNumber>$(VersionInfo.Split(".")[2])</BambooBuildNumber>
+      <BuildRevision>$(VersionInfo.Split(".")[3])</BuildRevision>
+
+      <!-- Add bamboo build number to our version info -->
+      <BambooVersionInfoFileName>$([System.IO.Path]::Combine($(SolutionDir),".config\Bamboo.Build.Number.txt"))</BambooVersionInfoFileName>
+      <BambooBuildNumber Condition="Exists($(BambooVersionInfoFileName))">$([System.IO.File]::ReadAllText($(BambooVersionInfoFileName)).Trim())</BambooBuildNumber>
+    </PropertyGroup>
+    
+    <PropertyGroup>
+      <FullBuildVersionString>$(MajorBuildNumber).$(MinorBuildNumber).$(BambooBuildNumber).$(BuildRevision)</FullBuildVersionString>
+    </PropertyGroup>
+  </Target>
+  
+  <PropertyGroup>
+    <VersionPath>obj\</VersionPath>
+    <VersionCS>CentralVersion.cs</VersionCS>
+    
+    <CSharpVersionFile>$(VersionPath)$(VersionCS)</CSharpVersionFile>
+    <SetupVersionFile>$(VersionPath)CentralVersion.wxi</SetupVersionFile>
+    <CentralVersionFile>$(SolutionDir)CentralVersion.txt</CentralVersionFile>
+  </PropertyGroup>
+  
+  <!--
+  ================================================================================================
+  CentralVersionPrint
+
+    Displays the versions of this build.
+  ================================================================================================
+  -->
+  <Target Name="CentralVersionPrint">
+    <Message Text="FullBuildVersionString = $(FullBuildVersionString)" />
+  </Target>
+
+  <!--
+  ================================================================================================
+  WriteCentralVersionFile
+
+    Displays the versions of this build.
+  ================================================================================================
+  -->
+  <Target Name="WriteCentralVersionFile"
+          Condition="!Exists($(CentralVersionFile))"
+          Returns="$(CentralVersionFile)">
+    <ItemGroup>
+      <VersionLines Include="
+version=$(FullBuildVersionString)"/>
+    </ItemGroup>
+    <WriteLinesToFile Overwrite="true"
+                      File="$(CentralVersionFile)"
+                      Lines="@(VersionLines)" />
+    <ItemGroup>
+      <FileWrites Include="$(CentralVersionFile)" />
+    </ItemGroup>
+  </Target>
+
+  <!--
+  ================================================================================================
+  WriteCSharpVersionFile
+
+    Creates the CentralVersion.cs version file for C# code.
+  ================================================================================================
+  -->
+  <Target Name="WriteCSharpVersionFile"
+          Condition="!Exists($(CSharpVersionFile))"
+          Returns="$(CSharpVersionFile)">
+    <ItemGroup>
+      <CSharpLines Include="
+// &lt;auto-generated/&gt;
+using System.Reflection%3B
+[assembly:AssemblyVersion(&quot;$(FullBuildVersionString)&quot;)]
+[assembly:AssemblyFileVersion(&quot;$(FullBuildVersionString)&quot;)]
+"/>
+    </ItemGroup>
+
+    <Message Text="$(MSBuildProjectName) version: $(FullBuildVersionString)" Importance="high"/>
+
+    <MakeDir Directories="$(VersionPath)"/>
+    <WriteLinesToFile Overwrite="true"
+                File="$(CSharpVersionFile)"
+                Lines="@(CSharpLines)" />
+    <ItemGroup>
+      <FileWrites Include="$(CSharpVersionFile)" />
+    </ItemGroup>
+  </Target>
+
+  <!--
+  ================================================================================================
+  WriteSetupVersionFile
+
+    Creates the CentralVersion.wxi version file for setup code.
+  ================================================================================================
+  -->
+  <Target Name="WriteSetupVersionFile"
+          Condition="!Exists($(SetupVersionFile))"
+          Returns="$(SetupVersionFile)">
+    <ItemGroup>
+      <WxiVersionLines Include="
+&lt;?xml version='1.0' encoding='utf-8'?&gt;
+&lt;!-- generated by build system --&gt;
+&lt;Include&gt;
+  &lt;?define CentralVersion='$(FullBuildVersionString)' ?&gt;
+&lt;/Include&gt;
+"/>
+    </ItemGroup>
+
+    <Message Text="$(MSBuildProjectName) version: $(FullBuildVersionString)" Importance="high"/>
+
+    <MakeDir Directories="$(VersionPath)"/>
+    <WriteLinesToFile Overwrite="true"
+                File="$(SetupVersionFile)"
+                Lines="@(WxiVersionLines)" />
+    <ItemGroup>
+      <FileWrites Include="$(SetupVersionFile)" />
+    </ItemGroup>
+  </Target>
+  
+  <!--
+  ================================================================================================
+  CleanVersionFiles
+
+    Deletes the CentralVersion.* version files.
+  ================================================================================================
+  -->
+  <Target Name="CleanVersionFiles">
+    <Delete Files="$(CSharpVersionFile);$(SetupVersionFile)"
+            TreatErrorsAsWarnings="true" />
+  </Target>
+
+</Project>

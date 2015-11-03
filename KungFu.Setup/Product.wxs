@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?include CentralVersion.wxi ?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="*" Name="KungFu.Setup" Language="1033" Version="$(var.CentralVersion)" Manufacturer="Bruce Lee"
+           UpgradeCode="cebfcc9c-5b5d-4431-afa1-26a414ec6c1c">
+    <!-- Change InstallScope to perMachine and it works fine -->
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perUser" />
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    <MediaTemplate />
+
+    <Feature Id="ProductFeature" Title="KungFu.Setup" Level="1">
+      <ComponentGroupRef Id="ProductComponents" />
+    </Feature>
+  </Product>
+
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="LocalAppDataFolder">
+        <Directory Id="INSTALLFOLDER" Name="KungFu" />
+      </Directory>
+    </Directory>
+  </Fragment>
+
+  <Fragment>
+    <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+      <Component Id="RemoveInstallFolderComponent" Guid="6035326d-3dd0-48f5-8674-4e440b80bd00">
+        <RemoveFolder Id="RemoveInstallFolder" On="uninstall" />
+        <RegistryValue Root="HKCU" Key="Software\RWWA\KungFu" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+      </Component>
+
+      <Component Id="FilesComponent" Guid="8c6af2a9-de92-4f75-a34f-284d9a52f56b">
+        <File Id="KungFu.exe" Source="$(var.KungFu.TargetDir)\KungFu.exe" />
+        <RegistryValue Root="HKCU" Key="Software\RWWA\KungFu.exe" Name="installed" Type="integer" Value="1"
+                       KeyPath="yes" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+</Wix>
