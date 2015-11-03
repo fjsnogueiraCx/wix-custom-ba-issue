@@ -1,6 +1,6 @@
 # How to use
 1. Install Wix 3.10.1
-2. Load the solution up in Visual Studio 2013
+2. Load the solution up in Visual Studio 2015
 3. Run CreateInstallers
    This creates two versions in temp:
    - %temp%\KungFu\0.0.6.0\KungFu.exe
