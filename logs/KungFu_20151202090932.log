@@ -1,0 +1,48 @@
+[83D8:13F8C][2015-12-02T09:09:32]i001: Burn v3.10.1.2213, Windows v6.3 (Build 9600: Service Pack 0), path: C:\Users\tabapw\AppData\Local\Package Cache\{b6edbb06-3a35-45c4-aa54-a3145c4530ec}\KungFu.exe
+[83D8:13F8C][2015-12-02T09:09:32]i003: This bundle is being run by a related bundle as type 'Update'.
+[83D8:13F8C][2015-12-02T09:09:32]i009: Command Line: '-burn.related.update'
+[83D8:13F8C][2015-12-02T09:09:32]i000: Setting string variable 'WixBundleLog' to value 'C:\code\temp\KungFu_20151202090932.log'
+[83D8:13F8C][2015-12-02T09:09:32]i000: Setting string variable 'WixBundleManufacturer' to value 'Bruce Lee'
+[83D8:13F8C][2015-12-02T09:09:32]i000: Loading managed bootstrapper application.
+[83D8:13F8C][2015-12-02T09:09:32]i000: Creating BA thread to run asynchronously.
+[83D8:D3C8][2015-12-02T09:09:32]i000: Running the WiX BA.
+[83D8:13F8C][2015-12-02T09:09:32]i100: Detect begin, 2 packages
+[83D8:D3C8][2015-12-02T09:09:32]i000: Creating a UI.
+[83D8:13F8C][2015-12-02T09:09:32]i000: Setting string variable 'Netfx4x64FullVersion' to value '4.6.00081'
+[83D8:13F8C][2015-12-02T09:09:32]i000: Setting string variable 'Netfx4FullVersion' to value '4.6.00081'
+[83D8:13F8C][2015-12-02T09:09:32]i052: Condition 'Netfx4FullVersion AND (NOT VersionNT64 OR Netfx4x64FullVersion)' evaluates to true.
+[83D8:13F8C][2015-12-02T09:09:32]i101: Detected package: Netfx4Full, state: Present, cached: None
+[83D8:13F8C][2015-12-02T09:09:32]i101: Detected package: KungFu.Setup.msi, state: Present, cached: Complete
+[83D8:13F8C][2015-12-02T09:09:32]i052: Condition 'NETFRAMEWORK35_SP_LEVEL < 1' evaluates to false.
+[83D8:13F8C][2015-12-02T09:09:32]i199: Detect complete, result: 0x0
+[83D8:13F8C][2015-12-02T09:09:39]i200: Plan begin, 2 packages, action: UpdateReplace
+[83D8:13F8C][2015-12-02T09:09:39]w321: Skipping dependency registration on package with no dependency providers: {b6edbb06-3a35-45c4-aa54-a3145c4530ec}
+[83D8:13F8C][2015-12-02T09:09:39]i211: Planned upgrade bundle: {b6edbb06-3a35-45c4-aa54-a3145c4530ec}, default requested: Present, ba requested: Present, execute: Install, rollback: None, dependency: None
+[83D8:13F8C][2015-12-02T09:09:39]i299: Plan complete, result: 0x0
+[83D8:13F8C][2015-12-02T09:09:39]i300: Apply begin
+[83D8:F42C][2015-12-02T09:09:39]i338: Acquiring package: {b6edbb06-3a35-45c4-aa54-a3145c4530ec}, payload: {b6edbb06-3a35-45c4-aa54-a3145c4530ec}, copy from: C:\code\temp\KungFu\1.0.0.0\KungFu.exe
+[83D8:F42C][2015-12-02T09:09:39]i000: Setting string variable 'WixBundleLastUsedSource' to value 'C:\code\temp\KungFu\1.0.0.0\'
+[83D8:F42C][2015-12-02T09:09:39]i305: Verified acquired payload: {b6edbb06-3a35-45c4-aa54-a3145c4530ec} at path: C:\Users\tabapw\AppData\Local\Package Cache\.unverified\{b6edbb06-3a35-45c4-aa54-a3145c4530ec}, moving to: C:\Users\tabapw\AppData\Local\Package Cache\{b6edbb06-3a35-45c4-aa54-a3145c4530ec}\KungFu.exe.
+[83D8:13F8C][2015-12-02T09:09:39]i301: Applying execute package: {b6edbb06-3a35-45c4-aa54-a3145c4530ec}, action: Install, path: C:\Users\tabapw\AppData\Local\Package Cache\{b6edbb06-3a35-45c4-aa54-a3145c4530ec}\KungFu.exe, arguments: '"C:\Users\tabapw\AppData\Local\Package Cache\{b6edbb06-3a35-45c4-aa54-a3145c4530ec}\KungFu.exe"  -burn.related.update'
+[83D8:13F8C][2015-12-02T09:09:40]i319: Applied execute package: {b6edbb06-3a35-45c4-aa54-a3145c4530ec}, result: 0x0, restart: None
+[83D8:13F8C][2015-12-02T09:09:40]i351: Removing cached package: {b6edbb06-3a35-45c4-aa54-a3145c4530ec}, from path: C:\Users\tabapw\AppData\Local\Package Cache\{b6edbb06-3a35-45c4-aa54-a3145c4530ec}\
+[83D8:13F8C][2015-12-02T09:09:44]w353: Unable to remove cached package: {b6edbb06-3a35-45c4-aa54-a3145c4530ec}, from path: C:\Users\tabapw\AppData\Local\Package Cache\{b6edbb06-3a35-45c4-aa54-a3145c4530ec}\, reason: 0x80070020. Continuing...
+[83D8:13F8C][2015-12-02T09:09:44]i000: Automatically closing the window since update successful.
+[83D8:13F8C][2015-12-02T09:09:44]i399: Apply complete, result: 0x0, restart: None, ba requested restart:  No
+[83D8:13F8C][2015-12-02T09:09:44]i500: Shutting down, exit code: 0x0
+[83D8:13F8C][2015-12-02T09:09:44]i410: Variable: Netfx4FullVersion = 4.6.00081
+[83D8:13F8C][2015-12-02T09:09:44]i410: Variable: Netfx4x64FullVersion = 4.6.00081
+[83D8:13F8C][2015-12-02T09:09:44]i410: Variable: VersionNT64 = 6.3.0.0
+[83D8:13F8C][2015-12-02T09:09:44]i410: Variable: WixBundleAction = 8
+[83D8:13F8C][2015-12-02T09:09:44]i410: Variable: WixBundleElevated = 0
+[83D8:13F8C][2015-12-02T09:09:44]i410: Variable: WixBundleInstalled = 1
+[83D8:13F8C][2015-12-02T09:09:44]i410: Variable: WixBundleLastUsedSource = C:\code\temp\KungFu\1.0.0.0\
+[83D8:13F8C][2015-12-02T09:09:44]i410: Variable: WixBundleLog = C:\code\temp\KungFu_20151202090932.log
+[83D8:13F8C][2015-12-02T09:09:44]i410: Variable: WixBundleManufacturer = Bruce Lee
+[83D8:13F8C][2015-12-02T09:09:44]i410: Variable: WixBundleName = KungFu
+[83D8:13F8C][2015-12-02T09:09:44]i410: Variable: WixBundleOriginalSource = C:\code\temp\KungFu\0.0.6.0\KungFu.exe
+[83D8:13F8C][2015-12-02T09:09:44]i410: Variable: WixBundleOriginalSourceFolder = C:\code\temp\KungFu\0.0.6.0\
+[83D8:13F8C][2015-12-02T09:09:44]i410: Variable: WixBundleProviderKey = {b6edbb06-3a35-45c4-aa54-a3145c4530ec}
+[83D8:13F8C][2015-12-02T09:09:44]i410: Variable: WixBundleTag = 
+[83D8:13F8C][2015-12-02T09:09:44]i410: Variable: WixBundleVersion = 0.0.6.0
+[83D8:13F8C][2015-12-02T09:09:44]i007: Exit code: 0x0, restarting: No

@@ -1,0 +1,61 @@
+[7F3C:10288][2015-12-02T09:09:39]i001: Burn v3.10.1.2213, Windows v6.3 (Build 9600: Service Pack 0), path: C:\Users\tabapw\AppData\Local\Package Cache\{b6edbb06-3a35-45c4-aa54-a3145c4530ec}\KungFu.exe
+[7F3C:10288][2015-12-02T09:09:39]i003: This bundle is being run by a related bundle as type 'Update'.
+[7F3C:10288][2015-12-02T09:09:39]i009: Command Line: '-burn.related.update'
+[7F3C:10288][2015-12-02T09:09:40]i000: Setting string variable 'WixBundleLog' to value 'C:\code\temp\KungFu_20151202090940.log'
+[7F3C:10288][2015-12-02T09:09:40]i000: Setting string variable 'WixBundleOriginalSource' to value 'C:\Users\tabapw\AppData\Local\Package Cache\{b6edbb06-3a35-45c4-aa54-a3145c4530ec}\KungFu.exe'
+[7F3C:10288][2015-12-02T09:09:40]i000: Setting string variable 'WixBundleOriginalSourceFolder' to value 'C:\Users\tabapw\AppData\Local\Package Cache\{b6edbb06-3a35-45c4-aa54-a3145c4530ec}\'
+[7F3C:10288][2015-12-02T09:09:40]i000: Setting string variable 'WixBundleName' to value 'KungFu'
+[7F3C:10288][2015-12-02T09:09:40]i000: Setting string variable 'WixBundleManufacturer' to value 'Bruce Lee'
+[7F3C:10288][2015-12-02T09:09:40]i000: Loading managed bootstrapper application.
+[7F3C:10288][2015-12-02T09:09:40]i000: Creating BA thread to run asynchronously.
+[7F3C:13208][2015-12-02T09:09:40]i000: Running the WiX BA.
+[7F3C:10288][2015-12-02T09:09:40]i100: Detect begin, 2 packages
+[7F3C:13208][2015-12-02T09:09:40]i000: Creating a UI.
+[7F3C:10288][2015-12-02T09:09:40]i000: Setting string variable 'Netfx4x64FullVersion' to value '4.6.00081'
+[7F3C:10288][2015-12-02T09:09:40]i000: Setting string variable 'Netfx4FullVersion' to value '4.6.00081'
+[7F3C:10288][2015-12-02T09:09:40]e000: Error 0x80070002: Failed to get size of pseudo bundle: C:\Users\tabapw\AppData\Local\Package Cache\{b6edbb06-3a35-45c4-aa54-a3145c4530ec}\KungFu.exe
+[7F3C:10288][2015-12-02T09:09:40]e000: Error 0x80070002: Failed to initialize package from related bundle id: {b6edbb06-3a35-45c4-aa54-a3145c4530ec}
+[7F3C:10288][2015-12-02T09:09:40]i052: Condition 'Netfx4FullVersion AND (NOT VersionNT64 OR Netfx4x64FullVersion)' evaluates to true.
+[7F3C:10288][2015-12-02T09:09:40]i103: Detected related package: {7AAB160C-3538-49AD-ADFA-863CEED874F9}, scope: PerUser, version: 0.0.6.0, language: 0 operation: MajorUpgrade
+[7F3C:10288][2015-12-02T09:09:40]i101: Detected package: Netfx4Full, state: Present, cached: None
+[7F3C:10288][2015-12-02T09:09:40]i101: Detected package: KungFu.Setup.msi, state: Absent, cached: None
+[7F3C:10288][2015-12-02T09:09:40]i052: Condition 'NETFRAMEWORK35_SP_LEVEL < 1' evaluates to false.
+[7F3C:10288][2015-12-02T09:09:40]i199: Detect complete, result: 0x0
+[7F3C:10288][2015-12-02T09:09:47]i200: Plan begin, 2 packages, action: Install
+[7F3C:10288][2015-12-02T09:09:47]w321: Skipping dependency registration on package with no dependency providers: Netfx4Full
+[7F3C:10288][2015-12-02T09:09:47]i000: Setting string variable 'WixBundleRollbackLog_KungFu.Setup.msi' to value 'C:\code\temp\KungFu_20151202090940_000_KungFu.Setup.msi_rollback.log'
+[7F3C:10288][2015-12-02T09:09:47]i000: Setting string variable 'WixBundleLog_KungFu.Setup.msi' to value 'C:\code\temp\KungFu_20151202090940_000_KungFu.Setup.msi.log'
+[7F3C:10288][2015-12-02T09:09:47]i201: Planned package: Netfx4Full, state: Present, default requested: Present, ba requested: Present, execute: None, rollback: None, cache: No, uncache: No, dependency: None
+[7F3C:10288][2015-12-02T09:09:47]i201: Planned package: KungFu.Setup.msi, state: Absent, default requested: Present, ba requested: Present, execute: Install, rollback: Uninstall, cache: Yes, uncache: No, dependency: Register
+[7F3C:10288][2015-12-02T09:09:47]i299: Plan complete, result: 0x0
+[7F3C:10288][2015-12-02T09:09:47]i300: Apply begin
+[7F3C:10288][2015-12-02T09:09:47]i370: Session begin, registration key: SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{889892e1-2b42-4817-9336-e03b9e50b33c}, options: 0x7, disable resume: No
+[7F3C:10288][2015-12-02T09:09:47]i000: Caching bundle from: 'C:\code\temp\{889892e1-2b42-4817-9336-e03b9e50b33c}\.be\KungFu.exe' to: 'C:\Users\tabapw\AppData\Local\Package Cache\{889892e1-2b42-4817-9336-e03b9e50b33c}\KungFu.exe'
+[7F3C:10288][2015-12-02T09:09:47]i320: Registering bundle dependency provider: {889892e1-2b42-4817-9336-e03b9e50b33c}, version: 1.0.0.0
+[7F3C:10288][2015-12-02T09:09:47]i371: Updating session, registration key: SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{889892e1-2b42-4817-9336-e03b9e50b33c}, resume: Active, restart initiated: No, disable resume: No
+[7F3C:112E4][2015-12-02T09:09:47]i305: Verified acquired payload: KungFu.Setup.msi at path: C:\Users\tabapw\AppData\Local\Package Cache\.unverified\KungFu.Setup.msi, moving to: C:\Users\tabapw\AppData\Local\Package Cache\{899ED171-437F-470B-8EB6-4D9E317CDADB}v1.0.0.0\KungFu.Setup.msi.
+[7F3C:112E4][2015-12-02T09:09:47]i305: Verified acquired payload: cabE245182859BD1F9D1EA98F0991B0AA3B at path: C:\Users\tabapw\AppData\Local\Package Cache\.unverified\cabE245182859BD1F9D1EA98F0991B0AA3B, moving to: C:\Users\tabapw\AppData\Local\Package Cache\{899ED171-437F-470B-8EB6-4D9E317CDADB}v1.0.0.0\cab1.cab.
+[7F3C:10288][2015-12-02T09:09:47]i323: Registering package dependency provider: {899ED171-437F-470B-8EB6-4D9E317CDADB}, version: 1.0.0.0, package: KungFu.Setup.msi
+[7F3C:10288][2015-12-02T09:09:47]i301: Applying execute package: KungFu.Setup.msi, action: Install, path: C:\Users\tabapw\AppData\Local\Package Cache\{899ED171-437F-470B-8EB6-4D9E317CDADB}v1.0.0.0\KungFu.Setup.msi, arguments: ' ARPSYSTEMCOMPONENT="1" MSIFASTINSTALL="7"'
+[7F3C:10288][2015-12-02T09:09:48]i319: Applied execute package: KungFu.Setup.msi, result: 0x0, restart: None
+[7F3C:10288][2015-12-02T09:09:48]i325: Registering dependency: {889892e1-2b42-4817-9336-e03b9e50b33c} on package provider: {899ED171-437F-470B-8EB6-4D9E317CDADB}, package: KungFu.Setup.msi
+[7F3C:10288][2015-12-02T09:09:48]i372: Session end, registration key: SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{889892e1-2b42-4817-9336-e03b9e50b33c}, resume: ARP, restart: None, disable resume: No
+[7F3C:10288][2015-12-02T09:09:48]i371: Updating session, registration key: SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{889892e1-2b42-4817-9336-e03b9e50b33c}, resume: ARP, restart initiated: No, disable resume: No
+[7F3C:10288][2015-12-02T09:09:48]i399: Apply complete, result: 0x0, restart: None, ba requested restart:  No
+[7F3C:10288][2015-12-02T09:09:53]i500: Shutting down, exit code: 0x0
+[7F3C:10288][2015-12-02T09:09:53]i410: Variable: Netfx4FullVersion = 4.6.00081
+[7F3C:10288][2015-12-02T09:09:53]i410: Variable: Netfx4x64FullVersion = 4.6.00081
+[7F3C:10288][2015-12-02T09:09:53]i410: Variable: VersionNT64 = 6.3.0.0
+[7F3C:10288][2015-12-02T09:09:53]i410: Variable: WixBundleAction = 5
+[7F3C:10288][2015-12-02T09:09:53]i410: Variable: WixBundleElevated = 0
+[7F3C:10288][2015-12-02T09:09:53]i410: Variable: WixBundleLog = C:\code\temp\KungFu_20151202090940.log
+[7F3C:10288][2015-12-02T09:09:53]i410: Variable: WixBundleLog_KungFu.Setup.msi = C:\code\temp\KungFu_20151202090940_000_KungFu.Setup.msi.log
+[7F3C:10288][2015-12-02T09:09:53]i410: Variable: WixBundleManufacturer = Bruce Lee
+[7F3C:10288][2015-12-02T09:09:53]i410: Variable: WixBundleName = KungFu
+[7F3C:10288][2015-12-02T09:09:53]i410: Variable: WixBundleOriginalSource = C:\Users\tabapw\AppData\Local\Package Cache\{b6edbb06-3a35-45c4-aa54-a3145c4530ec}\KungFu.exe
+[7F3C:10288][2015-12-02T09:09:53]i410: Variable: WixBundleOriginalSourceFolder = C:\Users\tabapw\AppData\Local\Package Cache\{b6edbb06-3a35-45c4-aa54-a3145c4530ec}\
+[7F3C:10288][2015-12-02T09:09:53]i410: Variable: WixBundleProviderKey = {889892e1-2b42-4817-9336-e03b9e50b33c}
+[7F3C:10288][2015-12-02T09:09:53]i410: Variable: WixBundleRollbackLog_KungFu.Setup.msi = C:\code\temp\KungFu_20151202090940_000_KungFu.Setup.msi_rollback.log
+[7F3C:10288][2015-12-02T09:09:53]i410: Variable: WixBundleTag = 
+[7F3C:10288][2015-12-02T09:09:53]i410: Variable: WixBundleVersion = 1.0.0.0
+[7F3C:10288][2015-12-02T09:09:53]i007: Exit code: 0x0, restarting: No
